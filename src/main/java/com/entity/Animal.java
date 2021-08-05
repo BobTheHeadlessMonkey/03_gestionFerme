@@ -48,6 +48,12 @@ public class Animal {
 	public void setEtat(boolean etat) {
 		this.etat = etat;
 	}
+	public List<Eleveur> getEleveurs() {
+		return eleveurs;
+	}
+	public void setEleveurs(List<Eleveur> eleveurs) {
+		this.eleveurs = eleveurs;
+	}
 	
 	
 }
