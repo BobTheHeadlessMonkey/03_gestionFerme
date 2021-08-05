@@ -23,6 +23,9 @@ public class Animal {
 	@ManyToMany(mappedBy="animals")
 	private List<Eleveur> eleveurs;
 	
+	@ManyToMany(mappedBy="animals")
+	private List<Ferme> fermes;
+	
 	public Animal() {
 		super();
 	}
@@ -53,6 +56,12 @@ public class Animal {
 	}
 	public void setEleveurs(List<Eleveur> eleveurs) {
 		this.eleveurs = eleveurs;
+	}
+	public List<Ferme> getFermes() {
+		return fermes;
+	}
+	public void setFermes(List<Ferme> fermes) {
+		this.fermes = fermes;
 	}
 	
 	

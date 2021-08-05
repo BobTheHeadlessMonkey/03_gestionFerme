@@ -1,11 +1,17 @@
 package com.entity;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Ferme {
@@ -17,6 +23,10 @@ public class Ferme {
 
 	private String nom;
 	private Date dateAchat;
+	
+	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@JoinTable(name="assoc_ferme_animal", joinColumns=@JoinColumn(name="id_ferme"), inverseJoinColumns=@JoinColumn(name="id_animal"))
+	private List<Animal> animals;
 
 	// CTors
 	public Ferme() {
@@ -59,6 +69,14 @@ public class Ferme {
 
 	public void setDateAchat(Date dateAchat) {
 		this.dateAchat = dateAchat;
+	}
+
+	public List<Animal> getAnimals() {
+		return animals;
+	}
+
+	public void setAnimals(List<Animal> animals) {
+		this.animals = animals;
 	}
 
 	// To String
