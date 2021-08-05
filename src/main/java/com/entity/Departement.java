@@ -25,7 +25,7 @@ public class Departement {
 
 	// Association UML
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "fermes département", joinColumns = {
+	@JoinTable(name = "assoc_ferme_departement", joinColumns = {
 			@JoinColumn(name = "id_departement", referencedColumnName = "idDepartement") }, inverseJoinColumns = {
 					@JoinColumn(name = "id_ferme", table = "ferme", referencedColumnName = "idFerme") })
 	private List<Ferme> fermes = new ArrayList<Ferme>();

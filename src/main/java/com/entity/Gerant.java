@@ -24,7 +24,7 @@ public class Gerant {
 
 	// Associtaion UML
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "gérants des fermes", joinColumns = {
+	@JoinTable(name = "assoc_gerant_ferme", joinColumns = {
 			@JoinColumn(name = "id_gerant", referencedColumnName = "idGerant") }, inverseJoinColumns = {
 					@JoinColumn(name = "id_ferme", table = "ferme", referencedColumnName = "idFerme") })
 	private List<Ferme> fermes = new ArrayList<Ferme>();
